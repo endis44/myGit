@@ -83,7 +83,7 @@ if __name__ == '__main__':
   m = Mimic()
   m.mimic_dict("d:/sample_novel.txt")
 
-
+  m.print_mimic(' ')
 
 
 
