@@ -74,6 +74,26 @@ class Mimic(object):
     """
     # +++your code here+++
 
+    lineCnt = 0
+    myStatment = word + ' '
+    
+    for i in range(200):
+      next = random.choice(self.m_dict[word])
+      if next[-1] == '.':
+        myStatment += next + '\n'
+        lineCnt = 0
+      else:
+        myStatment += next + ' '
+      word = next
+
+      lineCnt += int(len(word))
+        
+      if lineCnt > 70:
+        lineCnt = 0
+        myStatment += "\n"
+
+    print myStatment
+    
     return
 
 
