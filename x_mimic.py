@@ -55,7 +55,16 @@ class Mimic(object):
       tmp = tmp.replace(',', ' ')
       tmp = tmp.replace('\"', ' ')
       wordList = tmp.split()
-
+    
+    self.m_dict = {}
+    last = ' '
+    for wd in wordList:
+        try:
+          self.m_dict[last].append(wd)
+        except:  
+          self.m_dict.update({last:[wd]})
+        last = wd
+        
     return
 
   def print_mimic(self, word):
