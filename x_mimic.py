@@ -49,22 +49,6 @@ class Mimic(object):
   def mimic_dict(self, url):
     """입력된 url의 텍스트 영역을 읽어 단어를 추출하고 멤버변수인 m_dict에 저장한다"""
     # +++your code here+++
-
-    with open(url, "r") as f:
-      tmp = f.read().replace('\n', ' ')
-      #tmp = tmp.replace('.', ' ')
-      tmp = tmp.replace(',', ' ')
-      tmp = tmp.replace('\"', ' ')
-      wordList = tmp.split()
-
-    self.m_dict = {}
-    last = ' '
-    for wd in wordList:
-        try:
-          self.m_dict[last].append(wd)
-        except:  
-          self.m_dict.update({last:[wd]})
-        last = wd
     
     return
 
@@ -75,35 +59,12 @@ class Mimic(object):
     """
     # +++your code here+++
 
-    lineCnt = 0
-    myStatment = word + ' '
-    
-    for i in range(200):
-      next = random.choice(self.m_dict[word])
-      if next[-1] == '.':
-        myStatment += next + '\n'
-        lineCnt = 0
-      else:
-        myStatment += next + ' '
-      word = next
-
-      lineCnt += int(len(word))
-        
-      if lineCnt > 70:
-        lineCnt = 0
-        myStatment += "\n"
-
-    print myStatment
     return
 
 
 if __name__ == '__main__':
   start_url = 'https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%B4%EC%8D%AC'
   
-  m = Mimic()
-  m.mimic_dict("d:/sample_novel.txt")
-  
-  m.print_mimic(' ')
 
 
 
